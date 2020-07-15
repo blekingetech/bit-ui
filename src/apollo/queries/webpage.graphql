@@ -1,0 +1,15 @@
+query GetWebPage($uri: String!) {
+    webPage(uri: $uri) {
+        id
+        title
+        pageTitle
+        pageDescription
+        content {
+            ... on MarkdownBody {
+                id
+                title
+                body
+            }
+        }
+    }
+}

@@ -1,13 +1,22 @@
 <template>
   <div>
-    <h1>Blekinge Tech</h1>
+    {{ webPage.content[0].body }}
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import getWebPage from '../apollo/queries/webpage.graphql'
 
 export default {
-  name: 'StartPage'
+  name: 'StartPage',
+  apollo: {
+    webPage: {
+      variables: {
+        uri: '/',
+      },
+      query: getWebPage
+    }
+  },
 }
 </script>

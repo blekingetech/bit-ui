@@ -1,0 +1,46 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+}
+
+union PageContent = HeroBlock
+
+type HeroBlock {
+    id: ID!
+    image: Image
+    title: String
+}
+
+type Image {
+    description: String
+    fileSize: Int
+    fileType: String
+    height: Int
+    id: ID!
+    title: String
+    url: String
+    width: Int
+}
+
+type Query {
+    webPage(uri: String): WebPage
+}
+
+type WebPage {
+    content: [PageContent]
+    id: ID!
+    pageDescription: String
+    pageTitle: String
+    title: String
+    uri: String
+}
+
+enum CacheControlScope {
+    PRIVATE
+    PUBLIC
+}
+
+
+"The `Upload` scalar type represents a file upload."
+scalar Upload
